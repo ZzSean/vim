@@ -16,11 +16,16 @@ hi CursorColumn ctermbg=0
 set mouse=a
 filetype plugin indent on
 set wildmenu
+set wildmode=list:longest,full
 set autoindent
 set shiftwidth=2
 set expandtab
 set tabstop=2
 set softtabstop=2
+set hlsearch
+set tags=tags;
+set updatetime=100
+set autochdir
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 autocmd BufWritePre * :%s/\s\+$//e
@@ -54,6 +59,7 @@ map <C-K> <C-W>k<C-W>_
 map <C-L> <C-W>l<C-W>_
 map <C-H> <C-W>h<C-W>_
 let mapleader = "\<space>"
+inoremap <silent><expr> <TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Plug
 call plug#begin('~/.vim/plugged')
