@@ -65,10 +65,13 @@ inoremap <silent><expr> <TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 call plug#begin('~/.vim/plugged')
 
 " deoplete
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-let g:deoplete#enable_at_startup = 1
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 " airline
 Plug 'vim-airline/vim-airline'
@@ -100,4 +103,3 @@ Plug 'easymotion/vim-easymotion'
 " surround
 Plug 'tpope/vim-surround'
 call plug#end()
-
