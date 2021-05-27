@@ -29,7 +29,6 @@ set autochdir
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 autocmd BufWritePre * :%s/\s\+$//e
-autocmd BufWritePre * :%s/\s\+$//e
 au BufNewFile,BufRead *.cu set ft=cu
 au BufNewFile,BufRead *.cuh set ft=cu
 
