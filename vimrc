@@ -2,8 +2,7 @@
 syntax on
 syntax enable
 set background=dark
-colorscheme solarized " for general
-colorscheme desert " for docker
+colorscheme desert
 set number
 set relativenumber
 set colorcolumn=80
@@ -32,6 +31,7 @@ match WhitespaceEOL /\s\+$/
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePre * :%s/\s\+$//e
 au BufNewFile,BufRead *.cu set ft=cu
+au BufNewFile,BufRead *.cuh set ft=cu
 
 " customized
 " 1. restore the position of cursor
@@ -48,7 +48,7 @@ augroup resCur
 augroup END
 
 " 2. undo file
-set backup                  " Backups are nice ...
+" set backup                  " Backups are nice ...
 if has('persistent_undo')
   set undofile                " So is persistent undo ...
   set undolevels=1000         " Maximum number of changes that can be undone
@@ -68,16 +68,7 @@ inoremap <silent><expr> <TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " Plug
 call plug#begin('~/.vim/plugged')
 
-" deoplete for vim8
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-" neocomplete for vim7
+" neocomplete for vim
 let g:neocomplete#enable_at_startup = 1
 
 " airline
