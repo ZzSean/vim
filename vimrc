@@ -68,7 +68,7 @@ inoremap <silent><expr> <TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " Plug
 call plug#begin('~/.vim/plugged')
 
-" neocomplete for vim
+" neocomplete
 let g:neocomplete#enable_at_startup = 1
 
 " airline
